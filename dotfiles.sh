@@ -34,7 +34,14 @@ git clone --bare https://github.com/KalleNiemi/dotfiles.git $HOME/.dotfiles
 sleep 2
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 sleep 1
-/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" checkout
+
+## Overwrite exsisting
+# /usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" checkout -f
+
+mkdir -p .dotfiles-backup && \
+/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
+xargs -I{} mv {} .dotfiles-backup/{}
+
 /usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" config --local status.showUntrackedFiles no
 
 echo 'export EDITOR=vim' >> ~/.bashrc
