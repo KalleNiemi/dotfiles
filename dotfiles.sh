@@ -1,9 +1,10 @@
 #!/bin/bash
-
+##### SETUP STEPS FOR BARE REPO ###################################################
 # git init --bare ~/.dotfiles
 # alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
-# dotfiles checkout
 # dotfiles config --local status.showUntrackedFiles no
+###################################################################################
+
 #tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -28,4 +29,7 @@ get_package tmux
 #tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-
+git clone --bare https://github.com/KalleNiemi/dotfiles.git $HOME/.dotfiles
+alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+dotfiles checkout
+dotfiles config --local status.showUntrackedFiles no
