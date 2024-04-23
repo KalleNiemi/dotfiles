@@ -48,10 +48,11 @@ servers = (
     use_tls = "yes";
     tls_verify = "yes";
   },
-  { 
+  {
     address = "irc.quakenet.org";
     chatnet = "QuakeNet";
     port = "6667";
+    autoconnect = "yes";
   },
   {
     address = "irc.rizon.net";
@@ -142,6 +143,8 @@ chatnets = {
 channels = (
   { name = "#lobby"; chatnet = "EsperNet"; autojoin = "No"; },
   { name = "#libera"; chatnet = "liberachat"; autojoin = "No"; },
+  { name = "#defrag"; chatnet = "QuakeNet"; autojoin = "Yes"; },
+  { name = "#pulina"; chatnet = "QuakeNet"; autojoin = "Yes"; },
   { name = "#irssi"; chatnet = "liberachat"; autojoin = "Yes"; },
   { name = "#linux"; chatnet = "liberachat"; autojoin = "Yes"; },
   { name = "#gamesurge"; chatnet = "GameSurge"; autojoin = "No"; },
@@ -310,9 +313,6 @@ statusbar = {
   };
 };
 settings = {
-  core = {
-    real_name = "Kalle Niemi";
-    user_name = "kalleN";
-    nick = "kalleN";
-  };
+  core = { real_name = "Kalle Niemi"; user_name = "kale"; nick = "kale"; };
+  "fe-common/core" = { theme = "default"; };
 };
