@@ -19,17 +19,20 @@ Plug 'rust-lang/rust.vim'
 Plug 'preservim/tagbar'
 Plug 'dense-analysis/ale'
 "color themes:
+Plug 'scheakur/vim-scheakur'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'ayu-theme/ayu-vim'
+"Plug 'marcopaganini/termschool-vim-theme'
+"Plug 'ayu-theme/ayu-vim'
 call plug#end()
 
-set termguicolors     " enable true colors support
+"set termguicolors     " enable true colors support
 "let ayucolor="light"  " for light version of theme
 "let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
+"let ayucolor="dark"   " for dark version of theme
 "colorscheme ayu
 colorscheme PaperColor
-
+"colorscheme termschool
+"colorscheme scheakur
 " Run PlugInstall if there are missing plugins
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
@@ -37,9 +40,11 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 "vim settings
 set number
+set relativenumber
 set background=dark
 syntax on
-
+"highlight LineNr ctermfg=7
+"highlight CursorLineNr ctermfg=6
 "Keybinds
 nnoremap <silent> <Esc><Esc> :noh<CR> :call clearmatches()<CR>
 nmap <F8> :TagbarToggle<CR>
