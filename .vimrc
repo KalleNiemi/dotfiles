@@ -42,6 +42,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 set number
 set relativenumber
 set background=dark
+set laststatus=2
 syntax on
 "highlight LineNr ctermfg=7
 "highlight CursorLineNr ctermfg=6
