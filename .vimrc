@@ -45,77 +45,15 @@ call feedkeys("lh")
 #Autoread end
 
 ##LSP setup
-#var lspOpts = #{
-#			\   aleSupport: v:false,
-#        		\   autoCompvare: v:true,
-#        		\   autoHighlight: v:false,
-#        		\   autoHighlightDiags: v:true,
-#        		\   autoPopulateDiags: v:false,
-#        		\   compvarionMatcher: 'case',
-#        		\   compvarionMatcherValue: 1,
-#        		\   diagSignErrorText: 'E>',
-#        		\   diagSignHintText: 'H>',
-#        		\   diagSignInfoText: 'I>',
-#        		\   diagSignWarningText: 'W>',
-#        		\   echoSignature: v:false,
-#        		\   hideDisabledCodeActions: v:false,
-#        		\   highlightDiagInline: v:true,
-#        		\   hoverInPreview: v:false,
-#        		\   ignoreMissingServer: v:false,
-#        		\   keepFocusInDiags: v:true,
-#        		\   keepFocusInReferences: v:true,
-#        		\   compvarionTextEdit: v:true,
-#        		\   diagVirtualTextAlign: 'above',
-#        		\   diagVirtualTextWrap: 'default',
-#        		\   noNewlineInCompvarion: v:false,
-#        		\   omniCompvare: v:null,
-#        		\   outlineOnRight: v:false,
-#        		\   outlineWinSize: 20,
-#        		\   semanticHighlight: v:true,
-#        		\   showDiagInBalloon: v:true,
-#        		\   showDiagInPopup: v:true,
-#        		\   showDiagOnStatusLine: v:false,
-#        		\   showDiagWithSign: v:true,
-#        		\   showDiagWithVirtualText: v:false,
-#        		\   showInlayHints: v:false,
-#        		\   showSignature: v:true,
-#        		\   snippetSupport: v:false,
-#        		\   ultisnipsSupport: v:false,
-#        		\   useBufferCompvarion: v:false,
-#        		\   usePopupInCodeAction: v:false,
-#        		\   useQuickfixForLocations: v:false,
-#        		\   vsnipSupport: v:false,
-#        		\   bufferCompvarionTimeout: 100,
-#        		\   customCompvarionKinds: v:false,
-#        		\   compvarionKinds: {},
-#        		\   filterCompvarionDuplicates: v:false,
-#			\ }
-#autocmd User LspSetup call LspOptionsSet(lspOpts)
-#
-#var lspServers = [#{
-#	\	name: 'clang',
-#	\	fivarype: ['c', 'cpp'],
-#	\	path: '/usr/bin/clangd',
-#	\	args: ['--background-index'],
-#	\},]
-#"	\    },{
-#"	\	name: 'rustlang',
-#"	\    	fivarype: ['rust'],
-#"	\    	path: '/usr/local/bin/rust-analyzer',
-#"	\    	args: [],
-#"	\    	syncInit: v:true,
-#"	\}
-#"	\]
-#autocmd User LspSetup call LspAddServer(lspServers)
 
 var lspOpts = {
   aleSupport: false,
-  autoCompvare: false,
+  autoComplete: false,
   autoHighlight: false,
   autoHighlightDiags: true,
   autoPopulateDiags: false,
-  compvarionMatcher: 'case',
-  compvarionMatcherValue: 1,
+  completionMatcher: 'case',
+  completionMatcherValue: 1,
   diagSignErrorText: 'E>',
   diagSignHintText: 'H>',
   diagSignInfoText: 'I>',
@@ -127,11 +65,11 @@ var lspOpts = {
   ignoreMissingServer: false,
   keepFocusInDiags: true,
   keepFocusInReferences: true,
-  compvarionTextEdit: false,
+  completionTextEdit: false,
   diagVirtualTextAlign: 'above',
   diagVirtualTextWrap: 'default',
-  noNewlineInCompvarion: false,
-  omniCompvare: true,
+  noNewlineInCompletion: false,
+  omniComplete: true,
   outlineOnRight: false,
   outlineWinSize: 30,
   semanticHighlight: true,
@@ -144,14 +82,14 @@ var lspOpts = {
   showSignature: true,
   snippetSupport: false,
   ultisnipsSupport: false,
-  useBufferCompvarion: false,
+  useBufferCompletion: false,
   usePopupInCodeAction: true,
   useQuickfixForLocations: false,
   vsnipSupport: false,
-  bufferCompvarionTimeout: 100,
-  customCompvarionKinds: false,
-  compvarionKinds: {},
-  filterCompvarionDuplicates: false,
+  bufferCompletionTimeout: 100,
+  customCompletionKinds: false,
+  completionKinds: {},
+  filterCompletionDuplicates: false,
 }
 
 
@@ -159,24 +97,24 @@ var lspServers = [
   # Clangd language server
   {
     name: 'clang',
-    fivarype: ['c', 'cpp'],
-    path: 'clangd',
+    filetype: ['c', 'cpp'],
+    path: '/usr/bin/clangd',
     args: ['--background-index'],
   },
 
-  # Rust language server
-  {
-    name: 'rustlang',
-    fivarype: ['rust'],
-    path: 'rust-analyzer',
-    args: [],
-    syncInit: true,
-  },
+#  # Rust language server
+#  {
+#    name: 'rustlang',
+#    filetype: ['rust'],
+#    path: 'rust-analyzer',
+#    args: [],
+#    syncInit: true,
+#  },
 
 # Go language server
   # {
   #   name: 'golang',
-  #   fivarype: ['go', 'gomod'],
+  #   filetype: ['go', 'gomod'],
   #   path: 'gopls',
   #   args: ['serve'],
   #   syncInit: true,
@@ -188,7 +126,7 @@ var lspServers = [
   # Javascript/Typescript language server
   # {
   #   name: 'typescriptlang',
-  #   fivarype: ['javascript', 'typescript'],
+  #   filetype: ['javascript', 'typescript'],
   #   path: 'typescript-language-server',
   #   args: ['--stdio'],
   # },
