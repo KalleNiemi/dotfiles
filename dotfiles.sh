@@ -29,6 +29,8 @@ get_package tmux
 #tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sleep 3
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sleep 3
 git clone --bare https://github.com/KalleNiemi/dotfiles.git $HOME/.dotfiles
 sleep 2
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
