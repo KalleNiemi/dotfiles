@@ -13,7 +13,7 @@ Plug 'NLKNguyen/papercolor-theme'
 #Plug 'marcopaganini/termschool-vim-theme'
 #Plug 'ayu-theme/ayu-vim'
 call plug#end()
-
+filetype plugin indent on
 #set termguicolors     " enable true colors support
 #var ayucolor="light"  " for light version of theme
 #var ayucolor="mirage" " for mirage version of theme
@@ -106,7 +106,7 @@ var lspServers = [
   # Rust language server
   {
     name: 'rustlang',
-    filetype: ['rust'],
+    filetype: ['rust', 'rs'],
     path: '/home/kale/.cargo/bin/rust-analyzer',
     args: [],
     syncInit: true,
