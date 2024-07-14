@@ -34,7 +34,9 @@ set relativenumber
 set background=dark
 set laststatus=2
 syntax on
-#highlight LineNr ctermfg=7
+highlight LineNrBelow ctermfg=4
+highlight LineNrAbove ctermfg=4
+highlight LineNr ctermfg=7
 #highlight CursorLineNr ctermfg=6
 
 #Keybinds
