@@ -104,22 +104,31 @@ var lspOpts = {
 
 
 var lspServers = [
-  # Clangd language server
-  {
-    name: 'clang',
-    filetype: ['c', 'cpp'],
-    path: '/usr/bin/clangd',
-    args: ['--background-index'],
-  },
+	# Clangd language server
+	{
+		name: 'clang',
+		filetype: ['c', 'cpp'],
+		path: '/usr/bin/clangd',
+		args: ['--background-index'],
+	},
 
-  # Rust language server
-  {
-    name: 'rustlang',
-    filetype: ['rust', 'rs'],
-    path: '/home/kale/.cargo/bin/rust-analyzer',
-    args: [],
-    syncInit: true,
-  },
+	# Rust language server
+	{
+		name: 'rustlang',
+		filetype: ['rust', 'rs'],
+		path: '/home/kale/.cargo/bin/rust-analyzer',
+		args: [],
+		syncInit: true,
+	},
+
+  #Python language server
+# 	{
+#		name: 'python',
+#		filetype: ['python'],
+#		path: '/home/kale/.local/bin/pyright',
+#		args: ['--stdio'],
+#		debug: v:true,
+#	}
 
 # Go language server
   # {
