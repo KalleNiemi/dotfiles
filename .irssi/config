@@ -314,5 +314,5 @@ statusbar = {
 };
 settings = {
   core = { real_name = "Kalle Niemi"; user_name = "kale"; nick = "kale"; };
-  "fe-common/core" = { theme = "default"; };
+  "fe-common/core" = { theme = "bluu"; };
 };

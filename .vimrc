@@ -3,8 +3,9 @@ vim9script
 #Plugins:
 call plug#begin()
 Plug 'rust-lang/rust.vim'
-Plug 'preservim/tagbar'
-Plug 'dense-analysis/ale'
+Plug 'liuchengxu/vista.vim'
+#Plug 'preservim/tagbar'
+#Plug 'dense-analysis/ale'
 Plug 'yegappan/lsp'
 #color themes:
 Plug 'scheakur/vim-scheakur'
@@ -36,7 +37,7 @@ syntax on
 #highlight CursorLineNr ctermfg=6
 #Keybinds
 nnoremap <silent> <Esc><Esc> :noh<CR> :call clearmatches()<CR>
-nmap <F8> :TagbarToggle<CR>
+nmap <F8> :Vista!!<CR>
 
 #Autoread begin    
 set autoread    
@@ -102,14 +103,14 @@ var lspServers = [
     args: ['--background-index'],
   },
 
-#  # Rust language server
-#  {
-#    name: 'rustlang',
-#    filetype: ['rust'],
-#    path: 'rust-analyzer',
-#    args: [],
-#    syncInit: true,
-#  },
+  # Rust language server
+  {
+    name: 'rustlang',
+    filetype: ['rust'],
+    path: '/home/kale/.cargo/bin/rust-analyzer',
+    args: [],
+    syncInit: true,
+  },
 
 # Go language server
   # {
