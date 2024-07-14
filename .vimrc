@@ -6,6 +6,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'liuchengxu/vista.vim'
 #Plug 'preservim/tagbar'
 #Plug 'dense-analysis/ale'
+Plug 'tpope/vim-fugitive'
 Plug 'yegappan/lsp'
 #color themes:
 Plug 'scheakur/vim-scheakur'
@@ -35,9 +36,15 @@ set laststatus=2
 syntax on
 #highlight LineNr ctermfg=7
 #highlight CursorLineNr ctermfg=6
+
 #Keybinds
 nnoremap <silent> <Esc><Esc> :noh<CR> :call clearmatches()<CR>
-nmap <F8> :Vista!!<CR>
+	#LSP specific
+nmap <silent> <F8> :Vista!!<CR>
+nmap <F6> :LspGotoDefinition<CR>
+nmap <F5> :execute "normal \<C-O>"<CR>
+	#Fugitive
+nmap <F7> :Git blame<CR>
 
 #Autoread begin    
 set autoread    
@@ -67,7 +74,7 @@ var lspOpts = {
   keepFocusInDiags: true,
   keepFocusInReferences: true,
   completionTextEdit: false,
-  diagVirtualTextAlign: 'above',
+  diagVirtualTextAlign: 'after',
   diagVirtualTextWrap: 'default',
   noNewlineInCompletion: false,
   omniComplete: true,
