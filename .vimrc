@@ -8,6 +8,7 @@ Plug 'liuchengxu/vista.vim'
 #Plug 'dense-analysis/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'yegappan/lsp'
+Plug 'preservim/nerdtree'
 #color themes:
 Plug 'scheakur/vim-scheakur'
 Plug 'NLKNguyen/papercolor-theme'
@@ -47,7 +48,7 @@ nmap <F6> :LspGotoDefinition<CR>
 nmap <F5> :execute "normal \<C-O>"<CR>
 	#Fugitive
 nmap <F7> :Git blame<CR>
-
+nmap <F2> :NERDTreeToggle<CR>
 #Autoread begin    
 set autoread    
 au CursorHold * checktime    
@@ -108,27 +109,25 @@ var lspServers = [
 	{
 		name: 'clang',
 		filetype: ['c', 'cpp'],
-		path: '/usr/bin/clangd',
+		path: 'clangd',
 		args: ['--background-index'],
 	},
 
-	# Rust language server
-	{
-		name: 'rustlang',
-		filetype: ['rust', 'rs'],
-		path: '/home/kale/.cargo/bin/rust-analyzer',
-		args: [],
-		syncInit: true,
-	},
+#	# Rust language server
+#	{
+#		name: 'rustlang',
+#		filetype: ['rust', 'rs'],
+#		path: '/home/kale/.cargo/bin/rust-analyzer',
+#		args: [],
+#		syncInit: true,
+#	},
 
   #Python language server
-# 	{
-#		name: 'python',
-#		filetype: ['python'],
-#		path: '/home/kale/.local/bin/pyright',
-#		args: ['--stdio'],
-#		debug: v:true,
-#	}
+	{
+		name: 'python',
+		filetype: ['python'],
+		path: '/home/user01/Linux-Driver-Testing/buildbot/worker_root/sandbox/bin/pylsp',
+	}
 
 # Go language server
   # {
