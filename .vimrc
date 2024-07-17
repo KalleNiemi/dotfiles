@@ -41,7 +41,7 @@ highlight LineNr ctermfg=7
 #highlight CursorLineNr ctermfg=6
 
 #Keybinds
-nnoremap <silent> <Esc><Esc> :noh<CR> :call clearmatches()<CR>
+nnoremap <silent> <Esc><Esc> :noh<CR>
 	#LSP specific
 nmap <silent> <F8> :Vista!!<CR>
 nmap <F6> :LspGotoDefinition<CR>
@@ -49,7 +49,6 @@ nmap <F5> :execute "normal \<C-O>"<CR>
 	#Fugitive
 nmap <F7> :Git blame<CR>
 nmap <F2> :NERDTreeToggle<CR>
-nmap <c-F2> :
 
 #Show trailing white space
 highlight ExtraWhitespace ctermbg=darkred guibg=darkred
