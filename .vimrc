@@ -54,9 +54,11 @@ nmap <c-F2> :
 #Show trailing white space
 highlight ExtraWhitespace ctermbg=darkred guibg=darkred
 match ExtraWhitespace /\s\+$\| \+\ze\t/
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhitespace /\s\+$\| \+\ze\t/
-
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$\| \+\ze\t/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
+autocmd BufWinLeave * call clearmatches()
+autocmd WinNew * match ExtraWhitespace /\s\+$\| \+\ze\t/
 #Autoread begin
 set autoread
 au CursorHold * checktime
