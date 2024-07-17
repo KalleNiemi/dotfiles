@@ -49,10 +49,18 @@ nmap <F5> :execute "normal \<C-O>"<CR>
 	#Fugitive
 nmap <F7> :Git blame<CR>
 nmap <F2> :NERDTreeToggle<CR>
-#Autoread begin    
-set autoread    
-au CursorHold * checktime    
-call feedkeys("lh")    
+nmap <c-F2> :
+
+#Show trailing white space
+highlight ExtraWhitespace ctermbg=darkred guibg=darkred
+match ExtraWhitespace /\s\+$\| \+\ze\t/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhitespace /\s\+$\| \+\ze\t/
+
+#Autoread begin
+set autoread
+au CursorHold * checktime
+call feedkeys("lh")
 #Autoread end
 
 ##LSP setup
