@@ -9,6 +9,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'yegappan/lsp'
 Plug 'preservim/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 #color themes:
 Plug 'scheakur/vim-scheakur'
 Plug 'NLKNguyen/papercolor-theme'
@@ -25,10 +26,14 @@ colorscheme PaperColor
 #colorscheme termschool
 #colorscheme scheakur
 # Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
-
+#autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+#  \| PlugInstall --sync | source $MYVIMRC
+#\| endif
+autocmd VimEnter * {
+	if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+		PlugInstall --sync | source $MYVIMRC
+	endif
+	}
 #vim settings
 set number
 set relativenumber
