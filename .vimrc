@@ -17,6 +17,7 @@ Plug 'NLKNguyen/papercolor-theme'
 #Plug 'ayu-theme/ayu-vim'
 call plug#end()
 filetype plugin indent on
+filetype plugin on
 #set termguicolors     " enable true colors support
 #var ayucolor="light"  " for light version of theme
 #var ayucolor="mirage" " for mirage version of theme
@@ -25,10 +26,8 @@ filetype plugin indent on
 colorscheme PaperColor
 #colorscheme termschool
 #colorscheme scheakur
+
 # Run PlugInstall if there are missing plugins
-#autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-#  \| PlugInstall --sync | source $MYVIMRC
-#\| endif
 autocmd VimEnter * {
 	if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 		PlugInstall --sync | source $MYVIMRC
@@ -45,7 +44,15 @@ highlight LineNrAbove ctermfg=4
 highlight LineNr ctermfg=7
 #highlight CursorLineNr ctermfg=6
 
-#Keybinds
+def g:RemoveWhitespaces(): void
+	:%s/\s\+$\| \+\ze\t/
+	:noh
+enddef
+
+### Keybinds ###
+nmap <c-Del><c-End> :call RemoveWhitespaces() <CR>
+
+#Remove highlight from selectrion
 nnoremap <silent> <Esc><Esc> :noh<CR>
 	#LSP specific
 nmap <silent> <F8> :Vista!!<CR>
@@ -53,6 +60,7 @@ nmap <F6> :LspGotoDefinition<CR>
 nmap <F5> :execute "normal \<C-O>"<CR>
 	#Fugitive
 nmap <F7> :Git blame<CR>
+	#Toggle NERDTree
 nmap <silent> <F2> :NERDTreeToggle<CR>
 
 #Show trailing white space
