@@ -48,7 +48,7 @@ nmap <F6> :LspGotoDefinition<CR>
 nmap <F5> :execute "normal \<C-O>"<CR>
 	#Fugitive
 nmap <F7> :Git blame<CR>
-nmap <F2> :NERDTreeToggle<CR>
+nmap <silent> <F2> :NERDTreeToggle<CR>
 
 #Show trailing white space
 highlight ExtraWhitespace ctermbg=darkred guibg=darkred
@@ -135,7 +135,7 @@ var lspServers = [
 	{
 		name: 'python',
 		filetype: ['python'],
-		path: '/home/user01/Linux-Driver-Testing/buildbot/worker_root/sandbox/bin/pylsp',
+		path: 'pylsp',
 	}
 
 # Go language server
