@@ -44,23 +44,26 @@ highlight LineNrAbove ctermfg=4
 highlight LineNr ctermfg=7
 #highlight CursorLineNr ctermfg=6
 
+### Function to remove trailing white spaces
+### and command to call it
 def g:RemoveWhitespaces(): void
 	:%s/\s\+$\| \+\ze\t/
 	:noh
 enddef
 
+command RMWS :call RemoveWhitespaces()
 ### Keybinds ###
-nmap <c-Del><c-End> :call RemoveWhitespaces() <CR>
 
 #Remove highlight from selectrion
 nnoremap <silent> <Esc><Esc> :noh<CR>
-	#LSP specific
+
+# LSP specific
 nmap <silent> <F8> :Vista!!<CR>
 nmap <F6> :LspGotoDefinition<CR>
 nmap <F5> :execute "normal \<C-O>"<CR>
-	#Fugitive
+#Fugitive
 nmap <F7> :Git blame<CR>
-	#Toggle NERDTree
+#Toggle NERDTree
 nmap <silent> <F2> :NERDTreeToggle<CR>
 
 #Show trailing white space
