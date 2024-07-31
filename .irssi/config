@@ -147,6 +147,7 @@ channels = (
   { name = "#pulina"; chatnet = "QuakeNet"; autojoin = "Yes"; },
   { name = "#irssi"; chatnet = "liberachat"; autojoin = "Yes"; },
   { name = "#linux"; chatnet = "liberachat"; autojoin = "Yes"; },
+  { name = "#git"; chatnet = "liberachat"; autojoin = "Yes"; },
   { name = "#gamesurge"; chatnet = "GameSurge"; autojoin = "No"; },
   { name = "#irssi"; chatnet = "IRCNet"; autojoin = "No"; },
   { name = "#ircsource"; chatnet = "IRCSource"; autojoin = "No"; },
