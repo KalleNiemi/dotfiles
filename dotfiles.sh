@@ -13,7 +13,7 @@ APT_GET_CMD=$(which apt-get)
 function get_package(){
 	package=$1
 	if [[ ! -z $YUM_CMD ]]; then
-		yum install $package
+		sudo yum install $package
 	elif [[ ! -z $APT_GET_CMD ]]; then
 		sudo apt-get install $package
 # elif [[ ! -z $OTHER_CMD ]]; then
@@ -26,6 +26,7 @@ function get_package(){
 
 get_package vim
 get_package tmux
+get_package fzf
 #tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sleep 3
@@ -47,3 +48,4 @@ sleep 1
 
 echo "alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'" >> ~/.bashrc
 echo 'export EDITOR=vim' >> ~/.bashrc
+echo "export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --border top'" >> ~/.bashrc
