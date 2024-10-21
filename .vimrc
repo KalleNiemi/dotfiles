@@ -52,17 +52,22 @@ def g:RemoveWhitespaces(): void
 enddef
 
 command RMWS :call RemoveWhitespaces()
+
+command FIX :LspCodeAction
 ### Keybinds ###
 
 #Remove highlight from selectrion
 nnoremap <silent> <Esc><Esc> :noh<CR>
 
 # LSP specific
-nmap <silent> <F8> :Vista!!<CR>
-nmap <F6> :LspGotoDefinition<CR>
-nmap <F5> :execute "normal \<C-O>"<CR>
+nmap <silent> <F4> :Vista!!<CR>
+nmap <silent> <F5> :execute "normal \<C-O>"<CR>
+
+nmap <silent> <F6> :LspGotoDefinition<CR>
+nmap <silent> <F7> :LspDiagShow<CR>
+nmap <silent> <F8> :LspDiagHere<CR>
 #Fugitive
-nmap <F7> :Git blame<CR>
+nmap <silent> <F9> :Git blame<CR>
 #Toggle NERDTree
 nmap <silent> <F2> :NERDTreeToggle<CR>
 
@@ -108,13 +113,13 @@ var lspOpts = {
   omniComplete: true,
   outlineOnRight: false,
   outlineWinSize: 30,
-  semanticHighlight: true,
-  showDiagInBalloon: true,
-  showDiagInPopup: true,
+  semanticHighlight: false,
+  showDiagInBalloon: false,
+  showDiagInPopup: false,
   showDiagOnStatusLine: false,
   showDiagWithSign: true,
-  showDiagWithVirtualText: true,
-  showInlayHints: true,
+  showDiagWithVirtualText: false,
+  showInlayHints: false,
   showSignature: true,
   snippetSupport: false,
   ultisnipsSupport: false,
