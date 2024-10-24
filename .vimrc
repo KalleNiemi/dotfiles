@@ -54,6 +54,7 @@ enddef
 command RMWS :call RemoveWhitespaces()
 
 command FIX :LspCodeAction
+command GDEC :LspGotoDeclaration
 ### Keybinds ###
 
 #Remove highlight from selectrion
