@@ -34,6 +34,7 @@ autocmd VimEnter * {
 	endif
 	}
 #vim settings
+set viminfo='100,f1
 set number
 set relativenumber
 set background=dark
