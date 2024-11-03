@@ -24,6 +24,7 @@ function get_package(){
 	fi
 }
 
+get_package git
 get_package vim
 get_package tmux
 get_package fzf
