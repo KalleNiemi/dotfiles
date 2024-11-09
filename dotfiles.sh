@@ -10,12 +10,15 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 YUM_CMD=$(which yum)
 APT_GET_CMD=$(which apt-get)
+PACMAN_GET_CMD=$(which pacman)
 function get_package(){
 	package=$1
 	if [[ ! -z $YUM_CMD ]]; then
 		sudo yum install $package
 	elif [[ ! -z $APT_GET_CMD ]]; then
 		sudo apt-get install $package
+	elif [[ ! -z $PACMAN_GET_CMD ]]; then
+		sudo pacman -Sy $package
 # elif [[ ! -z $OTHER_CMD ]]; then
 #    $OTHER_CMD <proper arguments>
 	else
@@ -50,3 +53,4 @@ sleep 1
 echo "alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'" >> ~/.bashrc
 echo 'export EDITOR=vim' >> ~/.bashrc
 echo "export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --border top'" >> ~/.bashrc
+echo 'PS1="\[\e[0;32m\]\u\[\e[0;32m\]@\[\e[0;32m\]\h\[\e[0;37m\]:\[\e[0;34m\]\w\[\e[0;37m\]$ \[\e[0m\]"' >> ~./bashrc
